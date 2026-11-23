@@ -1,0 +1,6 @@
+:root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; color: #303832; background: #e5e8e1; }
+body { margin: 0; }
+main { max-width: 75rem; margin: auto; padding: clamp(1rem, 4vw, 3.5rem); }
+main > header { margin-bottom: 2rem; }
+h1 { margin: 0; font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -.065em; line-height: 1; }
+main > header p { max-width: 63ch; line-height: 1.5; font-size: 1.12rem; }

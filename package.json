@@ -1,0 +1,76 @@
+{
+  "name": "@esmirnov.ai/cancer-lab",
+  "version": "0.3.0",
+  "description": "Compare cancer-related exposures, cessation evidence, and tumor measurements with a TypeScript core and React lab.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Eduard Smirnov",
+  "keywords": [
+    "cancer",
+    "histology",
+    "public-health",
+    "education",
+    "react",
+    "typescript"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/react/index.js",
+  "types": "./dist/react/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    },
+    "./core": {
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "docs"
+  ],
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4186 --strictPort",
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
+    "build:demo": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "test:package": "npm run build && node scripts/smoke-package.mjs",
+    "prepack": "npm run build",
+    "preview": "vite preview --host 127.0.0.1 --port 4186 --strictPort"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0 <20"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "typescript": "^5.9.3",
+    "vite": "8.3.8"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}

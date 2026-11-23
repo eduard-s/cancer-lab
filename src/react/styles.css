@@ -1,0 +1,120 @@
+@import "./TissueFigure.css";
+@import "./TumorWorkbench.css";
+@import "./LiveTissue.css";
+@import "./Scenario.css";
+
+.cl-lab {
+  --cl-ink: #303832;
+  --cl-muted: #52605a;
+  --cl-green: #385e50;
+  --cl-rule: #abb5aa;
+  --cl-clay: #865a4c;
+  --cl-pale: #f4f5ef;
+  font: 1rem/1.5 Arial, Helvetica, sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--cl-ink);
+  container: cancer-lab / inline-size;
+}
+.cl-lab *, .cl-lab *::before, .cl-lab *::after { box-sizing: border-box; }
+.cl-lab [hidden] { display: none !important; }
+.cl-lab :is(h2,h3,h4,p,figure) { margin: 0; }
+.cl-lab h2 { font: 600 1.6rem/1.2 Arial, sans-serif; letter-spacing: -.045em; }
+.cl-lab h3 { font: 600 1.17rem/1.25 Arial, sans-serif; letter-spacing: -.02em; }
+.cl-lab h4 { font: 600 1rem/1.3 Arial, sans-serif; }
+.cl-lab a { color: var(--cl-green); text-decoration: underline; text-underline-offset: 3px; }
+.cl-lab button { font: inherit; cursor: pointer; }
+.cl-lab :is(button,input,a):focus-visible { outline: 3px solid var(--cl-green); outline-offset: 3px; }
+.cl-toolbar, .cl-type-picker, .cl-view-picker, .cl-section-heading, .cl-adjust-heading, .cl-presets, .cl-plot-key, .cl-crosslink {
+  display: flex; align-items: center; flex-wrap: wrap;
+}
+.cl-toolbar { justify-content: space-between; gap: .75rem 1rem; border-block: 1px solid var(--cl-rule); padding: .6rem 0; margin-bottom: 1.6rem; }
+.cl-type-picker { gap: .18rem; }
+.cl-type-picker > span { color: var(--cl-muted); font-size: .875rem; font-weight: 600; }
+.cl-type-picker > span { margin-right: .55rem; }
+.cl-type-picker button, .cl-view-picker button, .cl-presets button {
+  min-height: 44px; padding: .4rem .75rem; border: 1px solid transparent; background: transparent;
+  color: var(--cl-ink); border-radius: 4px; font-size: .94rem;
+}
+.cl-type-picker button:hover, .cl-view-picker button:hover, .cl-presets button:hover { background-color: #d4dcd3; }
+.cl-type-picker button[aria-pressed=true] { background: var(--cl-ink); color: var(--cl-pale); }
+.cl-view-picker { border: 1px solid var(--cl-rule); padding: 2px; border-radius: 5px; }
+.cl-view-picker button[aria-pressed=true] { background: var(--cl-pale); box-shadow: inset 0 0 0 1px var(--cl-rule); }
+.cl-workspace { display: grid; grid-template-columns: minmax(0,1.85fr) minmax(0,1fr); gap: clamp(1.25rem, 3.2cqw, 2.8rem); align-items: start; }
+.cl-aside { min-width: 0; }
+.cl-section-heading { justify-content: space-between; gap: .5rem 1rem; margin: -.25rem 0 .85rem; }
+.cl-lab .cl-plot { background: var(--cl-pale); padding: clamp(.875rem, 2cqw, 1.6rem); border: 1px solid var(--cl-rule); }
+.cl-plot figcaption { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .3rem 1rem; }
+.cl-plot figcaption > span, .cl-plot-key b, .cl-range > div > span, .cl-table td { font-family: "Courier New", monospace; }
+.cl-plot figcaption > span { font-size: .94rem; color: var(--cl-muted); }
+.cl-graph-body { display: flex; margin: 1.25rem 0 2.35rem; }
+.cl-y-ticks { display: flex; flex-direction: column; justify-content: space-between; padding-right: .6rem; color: var(--cl-muted); text-align: right; min-width: 2rem; }
+.cl-y-ticks span, .cl-x-ticks span { font: .8rem/1 "Courier New", monospace; }
+.cl-y-ticks span:first-child { transform: translateY(-.35em); }
+.cl-y-ticks span:last-child { transform: translateY(.35em); }
+.cl-plot-area { min-width: 0; flex: 1; height: clamp(7.75rem, 16cqw, 12.5rem); position: relative; }
+.cl-plot-area svg { overflow: visible; display: block; width: 100%; height: 100%; }
+.cl-plot-area svg :is(line,polyline) { vector-effect: non-scaling-stroke; }
+.cl-past { fill: #e7ebe2; }
+.cl-grid-line { stroke: #bac4b9; stroke-width: 1; }
+.cl-marker { stroke: var(--cl-muted); stroke-width: 1; stroke-dasharray: 2 3; }
+.cl-change-marker { stroke: var(--cl-clay); }
+.cl-between { fill: #d6dfd2; }
+.cl-line { fill: none; stroke-linejoin: round; }
+.cl-history { stroke: var(--cl-muted); stroke-width: 2; }
+.cl-continued { stroke: var(--cl-clay); stroke-width: 2.6; stroke-dasharray: 7 5; }
+.cl-changed { stroke: var(--cl-green); stroke-width: 3.8; }
+.cl-x-ticks span { color: var(--cl-muted); position: absolute; top: calc(100% + .5rem); transform: translateX(-50%); white-space: nowrap; }
+.cl-x-ticks span:first-child { left: 0; transform: none; }
+.cl-x-ticks span:last-child { right: 0; transform: none; }
+.cl-plot-key { padding: 0; list-style: none; margin: 0; gap: .35rem 1.15rem; }
+.cl-plot-key li { display: inline-flex; align-items: center; gap: .35rem; font-size: .9rem; }
+.cl-swatch { width: 1.1rem; border-top: 3px solid var(--cl-green); }
+.cl-swatch-past { border-color: var(--cl-muted); }
+.cl-swatch-continued { border-color: var(--cl-clay); border-top-style: dashed; }
+.cl-lab .cl-chart-caption { margin-top: .55rem; color: var(--cl-muted); font-size: .875rem; }
+.cl-adjust { padding-top: 1.3rem; }
+.cl-adjust-heading { justify-content: space-between; gap: .35rem 1rem; }
+.cl-adjust p, .cl-lower p, .cl-study p, .cl-interpret p { margin: .4rem 0; max-width: 67ch; }
+.cl-presets { gap: .25rem; }
+.cl-presets button { min-height: 44px; border-color: var(--cl-rule); font-size: .86rem; }
+.cl-presets button[aria-pressed=true] { border-color: var(--cl-green); background: #d4ded3; color: #254437; }
+.cl-rate-pair, .cl-time-controls { display: grid; gap: .5rem 1.35rem; }
+.cl-rate-pair { grid-template-columns: 1fr 1fr; margin-top: 1rem; }
+.cl-time-controls { grid-template-columns: repeat(3,minmax(0,1fr)); padding-top: .7rem; margin-top: .2rem; border-top: 1px solid var(--cl-rule); }
+.cl-range { min-width: 0; }
+.cl-range > div { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .15rem .45rem; }
+.cl-range label { font-weight: 600; font-size: .9rem; }
+.cl-range > div > span { font-size: .94rem; }
+.cl-range small { color: var(--cl-muted); font: .81rem Arial, sans-serif; }
+.cl-range input[type=range] { appearance: none; background: transparent; width: 100%; height: 44px; display: block; margin: 0; cursor: pointer; }
+.cl-range input::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: #bac5ba; }
+.cl-range input::-webkit-slider-thumb { -webkit-appearance: none; margin-top: -6px; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--cl-pale); background: var(--cl-green); box-shadow: 0 0 0 1px var(--cl-green); }
+.cl-range input::-moz-range-track { height: 8px; border-radius: 4px; background: #bac5ba; }
+.cl-range input::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--cl-pale); background: var(--cl-green); box-shadow: 0 0 0 1px var(--cl-green); }
+.cl-interpret { margin-top: 1.4rem; padding: 1.15rem 0 0; border-top: 1px solid var(--cl-rule); }
+.cl-lab .cl-tissue-note, .cl-lab .cl-tissue-credit { margin-top: .45rem; }
+.cl-lab .cl-interpret a, .cl-evidence a, .cl-study a { font-size: .875rem; }
+.cl-lower { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; border-top: 1px solid var(--cl-rule); padding-top: 1.4rem; margin-top: 1.5rem; }
+.cl-table { border-collapse: collapse; width: 100%; margin: .8rem 0 .3rem; }
+.cl-table :is(th,td) { text-align: end; padding: .55rem .25rem; border-bottom: 1px solid var(--cl-rule); }
+.cl-table th:first-child { padding-left: 0; text-align: start; }
+.cl-table thead { color: var(--cl-muted); font-size: .85rem; }
+.cl-table small { display: block; color: var(--cl-muted); font-size: .79rem; font-weight: 400; }
+.cl-text-button { color: var(--cl-green); background: transparent; border: 0; padding: .3rem 0; min-height: 44px; text-decoration: underline; text-underline-offset: 3px; }
+.cl-evidence article { margin-top: .85rem; }
+.cl-crosslink { margin-top: 1.5rem; border-block: 1px solid var(--cl-rule); padding: 1rem 0; gap: .8rem 1.5rem; justify-content: space-between; }
+.cl-crosslink p { max-width: 65ch; }
+.cl-action { color: var(--cl-pale); background: var(--cl-green); border: 0; border-radius: 4px; min-height: 44px; padding: .5rem .95rem; }
+.cl-action:hover { background: var(--cl-ink); }
+@container cancer-lab (max-width: 800px) {
+  .cl-workspace { grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); }
+  .cl-time-controls { grid-template-columns: 1fr; }
+  .cl-rate-pair { grid-template-columns: 1fr; }
+}
+@container cancer-lab (max-width: 630px) {
+  .cl-workspace, .cl-lower { grid-template-columns: 1fr; }
+  .cl-toolbar { align-items: flex-start; gap: .4rem; }
+  .cl-type-picker > span { flex-basis: 100%; }
+  .cl-section-heading { align-items: start; }
+  .cl-crosslink { align-items: start; }
+}

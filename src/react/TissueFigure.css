@@ -1,0 +1,102 @@
+.cl-tissue {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.cl-tissue-window {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.85;
+  background-color: #d4c4cf;
+}
+
+.cl-tissue-field {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cl-tissue-field[data-tissue="lung"] {
+  background-image: url("./tissue/lung.webp");
+}
+
+.cl-tissue-field[data-tissue="oral"] {
+  background-image: url("./tissue/oral.webp");
+}
+
+.cl-tissue-field[data-tissue="colorectal"] {
+  background-image: url("./tissue/colorectal.webp");
+}
+
+.cl-tissue-field[data-tissue="breast"] {
+  background-image: url("./tissue/breast.webp");
+  transform-origin: 72% 50%;
+}
+
+.cl-tissue-field[data-enlarged="true"] {
+  transform: scale(1.7);
+}
+
+button.cl-tissue-zoom {
+  display: grid;
+  position: absolute;
+  right: .55rem;
+  bottom: .55rem;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  color: #f5f5f1;
+  background: #303832;
+  border: 1px solid #f5f5f1;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+button.cl-tissue-zoom:hover,
+button.cl-tissue-zoom:focus-visible {
+  background: #49554d;
+}
+
+button.cl-tissue-zoom:focus-visible {
+  outline: 2px solid #303832;
+  outline-offset: 2px;
+}
+
+.cl-tissue figcaption {
+  padding-block-start: .875rem;
+}
+
+.cl-tissue-label {
+  display: block;
+  margin: 0 0 .3rem;
+  font: 600 .78rem/1.3 ui-monospace, monospace;
+}
+
+.cl-tissue-title {
+  display: block;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.cl-tissue .cl-tissue-note {
+  margin: .3rem 0 0;
+  font-size: .9375rem;
+  line-height: 1.5;
+}
+
+.cl-tissue .cl-tissue-credit {
+  margin: .5rem 0 0;
+  font-size: .8125rem;
+  line-height: 1.5;
+}
+
+.cl-tissue-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .16em;
+}
