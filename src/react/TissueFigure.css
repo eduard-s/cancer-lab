@@ -8,6 +8,7 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 1.85;
+  border-radius: 16px;
   background-color: #d4c4cf;
 }
 
@@ -50,20 +51,20 @@ button.cl-tissue-zoom {
   margin: 0;
   padding: 0;
   place-items: center;
-  color: #f5f5f1;
-  background: #303832;
-  border: 1px solid #f5f5f1;
+  color: var(--cl-pale);
+  background: var(--cl-ink);
+  border: 1px solid var(--cl-pale);
   border-radius: 50%;
   cursor: pointer;
 }
 
 button.cl-tissue-zoom:hover,
 button.cl-tissue-zoom:focus-visible {
-  background: #49554d;
+  background: var(--cl-green);
 }
 
 button.cl-tissue-zoom:focus-visible {
-  outline: 2px solid #303832;
+  outline: 2px solid var(--cl-ink);
   outline-offset: 2px;
 }
 

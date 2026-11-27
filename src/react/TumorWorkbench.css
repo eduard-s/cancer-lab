@@ -82,9 +82,8 @@
 .cl-scans-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border: 1px solid #9ca99e;
-  border-radius: 3px;
-  background: #eaf0e9;
+  border-radius: 14px;
+  background: #eff5fb;
 }
 
 .cl-scan {
@@ -93,11 +92,11 @@
   flex-direction: column;
   padding: .75rem .2rem;
   text-align: center;
-  color: #303832;
+  color: var(--cl-ink);
 }
 
 .cl-scan + .cl-scan {
-  border-inline-start: 1px solid #bcc8bd;
+  border-inline-start: 1px solid var(--cl-rule);
 }
 
 .cl-scan-name,
@@ -121,7 +120,7 @@
 }
 
 .cl-scan-axis {
-  stroke: #b1beb3;
+  stroke: var(--cl-rule);
   stroke-dasharray: 2 3;
 }
 
@@ -133,12 +132,12 @@
 }
 
 .cl-scan-ruler {
-  stroke: #303832;
+  stroke: var(--cl-ink);
   fill: none;
 }
 
 .cl-scan-scale-label {
-  fill: #303832;
+  fill: var(--cl-ink);
   font: 9px ui-monospace, monospace;
 }
 
@@ -165,7 +164,7 @@
 
 .cl-scan-table :is(th, td) {
   padding: .55rem .4rem;
-  border-bottom: 1px solid #bdc7be;
+  border-bottom: 1px solid var(--cl-rule);
   font-size: .875rem;
   line-height: 1.4;
   text-align: start;
@@ -183,7 +182,7 @@
 
 .cl-scan-method {
   padding-top: 1rem;
-  border-top: 1px solid #bdc7be;
+  border-top: 1px solid var(--cl-rule);
 }
 
 @container (max-width: 43rem) {
@@ -213,8 +212,8 @@
 
 .cl-rate-bars {
   margin: .75rem 0 0;
-  background: var(--cl-pale);
-  border: 1px solid var(--cl-rule);
+  background: #f1f5fa;
+  border-radius: 12px;
   padding: .75rem;
 }
 
@@ -230,7 +229,7 @@
 .cl-rate-track {
   position: relative;
   height: .65rem;
-  background: #dce2d9;
+  background: #d7e3f1;
   margin-top: .18rem;
 }
 .cl-rate-track i {
